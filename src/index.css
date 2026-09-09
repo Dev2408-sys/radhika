@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-blush: #f8e8ee;
+  --color-blush-deep: #f0d4de;
+  --color-pink-soft: #f5d0d8;
+  --color-pink-mid: #e8a0b0;
+  --color-rose: #c45c7a;
+  --color-rose-deep: #a34460;
+  --color-burgundy: #6b2d42;
+  --color-cream: #fff8f3;
+  --color-cream-warm: #fff1e8;
+  --color-paper: #fffcf8;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-burgundy);
+  background: var(--color-cream);
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.page-shell {
+  height: 100%;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.soft-glow {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 208, 216, 0.7), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 80%, rgba(248, 232, 238, 0.8), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 10% 70%, rgba(255, 241, 232, 0.9), transparent 45%),
+    linear-gradient(180deg, #fff8f3 0%, #f8e8ee 45%, #fff1e8 100%);
+}
+
+.glass-card {
+  background: rgba(255, 252, 248, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 8px 32px rgba(107, 45, 66, 0.06),
+    0 2px 8px rgba(196, 92, 122, 0.05);
+}
+
+.letter-paper {
+  background:
+    linear-gradient(180deg, #fffcf8 0%, #fff8f3 100%);
+  box-shadow:
+    0 12px 40px rgba(107, 45, 66, 0.08),
+    inset 0 0 0 1px rgba(245, 208, 216, 0.4);
+}
+
+.stat-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f5d0d8, #c45c7a);
+  box-shadow: 0 2px 8px rgba(196, 92, 122, 0.25);
+}
+
+.heart-cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+@media (pointer: coarse) {
+  .heart-cursor {
+    display: none !important;
+  }
+}
+
+.safe-pad {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  padding-left: max(1.25rem, env(safe-area-inset-left));
+  padding-right: max(1.25rem, env(safe-area-inset-right));
+}
+
+.scroll-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.scroll-y::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+.float-soft {
+  animation: soft-float 4s ease-in-out infinite;
+}
