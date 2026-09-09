@@ -9,12 +9,12 @@ const facts = [
   {
     n: '01',
     title: 'He thinks about you.',
-    sub: 'Probably more than he should.',
+    sub: 'Probably more than he should. Future husband problems. 😂',
   },
   {
     n: '02',
     title: 'He checks his phone hoping it\'s you.',
-    sub: 'And then pretends he wasn\'t waiting. 😂',
+    sub: 'And then pretends he wasn\'t waiting.',
   },
   {
     n: '03',
@@ -23,8 +23,8 @@ const facts = [
   },
   {
     n: '04',
-    title: 'He\'s officially addicted.',
-    sub: 'Unfortunately, the only known cure is more time with you. ❤️',
+    title: 'He already calls you his better half.',
+    sub: 'Not casually. Not jokingly. Softly, and for life. ❤️',
   },
 ]
 
@@ -49,7 +49,9 @@ export function Page4Confession({ onNext }: Props) {
         </div>
 
         <FadeIn delay={0.55}>
-          <p className="text-center text-sm italic text-burgundy/55">Medical science has given up.</p>
+          <p className="text-center text-sm italic text-burgundy/55">
+            Medical science has given up. So has his single life.
+          </p>
         </FadeIn>
 
         <FadeIn delay={0.65} className="mt-auto pt-2">

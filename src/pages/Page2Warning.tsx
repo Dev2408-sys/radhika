@@ -8,9 +8,9 @@ type Props = { onNext: () => void }
 
 const lines = [
   { icon: '❤️', text: 'Too much love' },
-  { icon: '😂', text: 'Unnecessary amounts of bakchodi' },
-  { icon: '🥹', text: 'Slight emotional damage' },
-  { icon: '😌', text: 'Unlimited boyfriend nonsense' },
+  { icon: '😂', text: 'Extra teasing & boyfriend drama (the cute kind)' },
+  { icon: '🥹', text: 'Slight emotional damage (in the best way)' },
+  { icon: '💍', text: 'Future husband & wife energy' },
   { icon: '🎂', text: 'And one very special birthday girl.' },
 ]
 

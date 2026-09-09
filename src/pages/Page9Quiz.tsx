@@ -83,12 +83,12 @@ export function Page9Quiz({ onNext }: Props) {
               exit={{ opacity: 0, y: -8 }}
               className="space-y-4"
             >
-              <p className="text-center font-medium text-burgundy">Who is more annoying?</p>
+              <p className="text-center font-medium text-burgundy">Who teases more?</p>
               <div className="grid grid-cols-2 gap-3">
                 <SoftButton
                   fullWidth
                   variant="secondary"
-                  onClick={() => showFeedback('Finally, some self-awareness. 😂', 'q3')}
+                  onClick={() => showFeedback('Finally, some honesty. 😂', 'q3')}
                   disabled={!!feedback}
                 >
                   Me 😂
@@ -96,7 +96,7 @@ export function Page9Quiz({ onNext }: Props) {
                 <SoftButton
                   fullWidth
                   onClick={() =>
-                    showFeedback("Wrong answer. But I'll allow it because it's your birthday. 😌", 'q3')
+                    showFeedback("Wrong answer. But I'll allow it — birthday privilege. 😌", 'q3')
                   }
                   disabled={!!feedback}
                 >
@@ -114,7 +114,9 @@ export function Page9Quiz({ onNext }: Props) {
               exit={{ opacity: 0, y: -8 }}
               className="space-y-4"
             >
-              <p className="text-center font-medium text-burgundy">Who loves the other more?</p>
+              <p className="text-center font-medium text-burgundy">
+                Who is the other&apos;s better half?
+              </p>
               <div className="grid grid-cols-2 gap-3">
                 <SoftButton
                   fullWidth
@@ -143,8 +145,9 @@ export function Page9Quiz({ onNext }: Props) {
               className="space-y-5 text-center"
             >
               <p className="font-serif text-xl text-burgundy leading-snug">
-                Result: BOTH ARE OBSESSED. 😂❤️
+                Result: BOTH ARE EACH OTHER&apos;S ARDHANG. 😂❤️
               </p>
+              <p className="text-sm text-burgundy/65">One half + one half = forever complete.</p>
               <SoftButton onClick={onNext}>One more thing... ✨</SoftButton>
             </motion.div>
           )}

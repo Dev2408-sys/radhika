@@ -10,8 +10,8 @@ const stats = [
   { label: 'Love for you', width: '100%', value: '100%' },
   { label: 'Thinking about you', width: '100%', value: '999%' },
   { label: 'Missing you', width: '100%', value: '∞' },
-  { label: 'Annoying you', width: '100%', value: '200%' },
-  { label: 'Being lucky to have you', width: '100%', value: '∞ / 10' },
+  { label: 'Wanting to tease you', width: '100%', value: '200%' },
+  { label: 'Ready to marry you someday', width: '100%', value: 'FOREVER' },
 ]
 
 export function Page5LoveStats({ onNext }: Props) {

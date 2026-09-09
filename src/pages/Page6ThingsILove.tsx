@@ -11,6 +11,8 @@ const loves = [
   'The little things you do without realizing.',
   'How you make ordinary moments feel special.',
   'Your beautiful heart.',
+  'The way you already feel like home.',
+  'And the wife you will be someday. 💍',
 ]
 
 export function Page6ThingsILove({ onNext }: Props) {
@@ -25,8 +27,8 @@ export function Page6ThingsILove({ onNext }: Props) {
 
         <div className="flex flex-col gap-2.5">
           {loves.map((item, i) => (
-            <GlassCard key={item} delay={0.1 + i * 0.09} className="!py-3.5 !px-4 text-center">
-              <p className="text-[0.98rem] text-burgundy">{item}</p>
+            <GlassCard key={item} delay={0.08 + i * 0.07} className="!py-3 !px-4 text-center">
+              <p className="text-[0.95rem] text-burgundy">{item}</p>
             </GlassCard>
           ))}
         </div>
@@ -34,17 +36,10 @@ export function Page6ThingsILove({ onNext }: Props) {
         <FadeIn delay={0.7} className="text-center">
           <p className="font-script text-2xl text-rose mb-1">And honestly...</p>
           <p className="font-serif text-3xl text-burgundy">Just YOU.</p>
+          <p className="mt-2 text-sm text-burgundy/60">My favourite human. My better half.</p>
         </FadeIn>
 
-        <FadeIn delay={0.85}>
-          <p className="text-center text-sm text-burgundy/65 leading-relaxed">
-            I could write 100 reasons...
-            <br />
-            but I&apos;d probably end up writing 1000.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.95} className="mt-auto pt-2">
+        <FadeIn delay={0.85} className="mt-auto pt-2">
           <SoftButton onClick={onNext}>Our story 💌</SoftButton>
         </FadeIn>
       </div>

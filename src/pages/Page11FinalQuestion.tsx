@@ -4,6 +4,7 @@ import { FadeIn } from '../components/ui'
 import { YesNoQuestion } from '../components/YesNoQuestion'
 import { FloatingHearts } from '../components/FloatingHearts'
 import { motion, AnimatePresence } from 'framer-motion'
+import { GIRL_NAME } from '../config'
 
 type Props = { onYes: () => void }
 
@@ -24,7 +25,9 @@ export function Page11FinalQuestion({ onYes }: Props) {
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <p className="text-center text-sm text-burgundy/70">I have one very important question.</p>
+          <p className="text-center text-sm text-burgundy/70">
+            {GIRL_NAME}, I have one very important question.
+          </p>
         </FadeIn>
 
         <AnimatePresence>
@@ -40,7 +43,7 @@ export function Page11FinalQuestion({ onYes }: Props) {
                 transition={{ duration: 1.2, repeat: Infinity }}
                 className="text-2xl"
               >
-                ❤️
+                💍
               </motion.span>
             </motion.div>
           )}
@@ -49,16 +52,22 @@ export function Page11FinalQuestion({ onYes }: Props) {
         {showQuestion && (
           <>
             <FadeIn>
-              <p className="font-serif text-center text-[1.25rem] leading-snug text-burgundy px-1">
+              <p className="font-serif text-center text-[1.2rem] leading-snug text-burgundy px-1">
                 Will you keep choosing me,
-                <br />
-                annoying me,
                 <br />
                 loving me,
                 <br />
                 laughing with me,
                 <br />
-                and making beautiful memories with me? ❤️
+                holding me through good days and hard days,
+                <br />
+                and walking with me —
+                <br />
+                as my better half —
+                <br />
+                toward a forever where you are my wife
+                <br />
+                and I am your husband? ❤️
               </p>
             </FadeIn>
 

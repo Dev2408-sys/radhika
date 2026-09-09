@@ -29,6 +29,9 @@ export function Page1SecretEntry({ onNext }: Props) {
           <h1 className="font-serif text-[1.85rem] leading-tight text-burgundy">
             I made something for you.
           </h1>
+          <p className="mt-2 text-sm text-burgundy/60">
+            A little love letter... and a forever promise.
+          </p>
         </FadeIn>
 
         <GlassCard delay={0.3} className="text-center">

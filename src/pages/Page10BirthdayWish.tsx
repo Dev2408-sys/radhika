@@ -1,7 +1,7 @@
 import { SoftButton } from '../components/SoftButton'
 import { PageLayout } from '../components/PageLayout'
 import { FadeIn } from '../components/ui'
-import { GIRL_NAME } from '../config'
+import { BOY_NAME, GIRL_NAME } from '../config'
 
 type Props = { onNext: () => void }
 
@@ -41,12 +41,14 @@ export function Page10BirthdayWish({ onNext }: Props) {
           <p className="text-center text-sm leading-relaxed text-burgundy/75 px-2">
             And whenever life gets difficult...
             <br />
+            in every soft day and every stormy one...
             <br />
-            I hope you remember that somewhere,
             <br />
-            there&apos;s someone who will always want
+            remember that {BOY_NAME} will still choose you —
             <br />
-            to see you happy.
+            as your boyfriend now,
+            <br />
+            and as your husband for the life ahead.
           </p>
         </FadeIn>
 

@@ -1,8 +1,8 @@
 import { SoftButton } from '../components/SoftButton'
 import { PageLayout } from '../components/PageLayout'
 import { FadeIn } from '../components/ui'
+import { SoftImage } from '../components/SoftImage'
 import { BOY_NAME, GIRL_NAME } from '../config'
-import { BirthdayIllustration } from '../components/BirthdayIllustration'
 
 type Props = { onNext: () => void }
 
@@ -18,13 +18,17 @@ export function Page3BirthdayReveal({ onNext }: Props) {
 
         <FadeIn delay={0.12}>
           <p className="text-center text-sm leading-relaxed text-burgundy/70 px-1">
-            To the girl who somehow became someone&apos;s favourite notification.
+            To the girl who somehow became someone&apos;s favourite notification —
+            and one day, his whole world.
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.22} className="flex justify-center py-1">
-          <BirthdayIllustration />
-        </FadeIn>
+        <SoftImage
+          src="/images/demo-flowers.png"
+          alt="Soft roses for Radhika"
+          className="mx-auto h-40 w-40"
+          delay={0.2}
+        />
 
         <FadeIn delay={0.32}>
           <p className="text-center text-[0.95rem] leading-relaxed text-burgundy/85">
