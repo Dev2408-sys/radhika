@@ -8,7 +8,7 @@ Edit names in [`src/config.ts`](src/config.ts):
 
 ```ts
 export const GIRL_NAME = 'Radhika'
-export const BOY_NAME = 'Dev'
+export const BOY_NAME = 'Pratik Khunt'
 ```
 
 Optional music: add `public/music/vibe.mp3`, then use **Play our vibe**.
