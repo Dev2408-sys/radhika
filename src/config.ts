@@ -6,9 +6,9 @@ export const BOY_FIRST = 'Pratik'
 /** Birthday tune — loops from the start when it ends */
 export const MUSIC_SRC = '/music/happy-birthday.mp3'
 
-export const TOTAL_CHAPTERS = 13
+export const TOTAL_CHAPTERS = 16
 
-/** Local demo images (downloaded from Unsplash) */
+/** Decorative stock images */
 export const IMAGES = {
   flowers: '/images/demo-flowers.png',
   rings: '/images/demo-rings.png',

@@ -13,6 +13,7 @@ const lines = [
   { icon: '🥹', text: 'Slight emotional damage (cute edition)' },
   { icon: '🏃', text: 'A NO button that WILL run away from you' },
   { icon: '🧩', text: 'One heart puzzle you must solve' },
+  { icon: '📸', text: 'Photo rating rounds for BOTH of you' },
   { icon: '💍', text: 'Future husband & wife energy' },
   { icon: '🎂', text: 'And one very special birthday girl.' },
 ]

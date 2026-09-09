@@ -5,6 +5,7 @@ import { LoadingScreen } from './components/LoadingScreen'
 import { MusicToggle } from './components/MusicToggle'
 import { HeartCursor } from './components/HeartCursor'
 import { MusicProvider } from './hooks/useMusic'
+import { RatingsProvider, useRatings } from './hooks/useRatings'
 import { Page1SecretEntry } from './pages/Page1SecretEntry'
 import { Page2Warning } from './pages/Page2Warning'
 import { Page3BirthdayReveal } from './pages/Page3BirthdayReveal'
@@ -15,6 +16,9 @@ import { Page7LoveStory } from './pages/Page7LoveStory'
 import { Page8BirthdayLetter } from './pages/Page8BirthdayLetter'
 import { Page9Quiz } from './pages/Page9Quiz'
 import { PageHeartPuzzle } from './pages/PageHeartPuzzle'
+import { PageRatePratik } from './pages/PageRatePratik'
+import { PageRateRadhika } from './pages/PageRateRadhika'
+import { PageRatingResults } from './pages/PageRatingResults'
 import { Page10BirthdayWish } from './pages/Page10BirthdayWish'
 import { Page11FinalQuestion } from './pages/Page11FinalQuestion'
 import { Page12YesMoment } from './pages/Page12YesMoment'
@@ -23,10 +27,11 @@ import { GIRL_NAME, TOTAL_CHAPTERS } from './config'
 
 type Stage = 'loading' | 'story' | 'final'
 
-export default function App() {
+function StoryApp() {
   const [stage, setStage] = useState<Stage>('loading')
   const [page, setPage] = useState(1)
   const [direction, setDirection] = useState(1)
+  const { resetRatings } = useRatings()
 
   const goTo = useCallback((next: number) => {
     setDirection(next >= page ? 1 : -1)
@@ -36,70 +41,81 @@ export default function App() {
   const next = useCallback(() => goTo(page + 1), [goTo, page])
 
   const replay = useCallback(() => {
+    resetRatings()
     setDirection(-1)
     setStage('loading')
     setPage(1)
-  }, [])
+  }, [resetRatings])
 
   const finishLoading = useCallback(() => setStage('story'), [])
-
   const chapter = stage === 'story' ? page : 0
 
   return (
-    <MusicProvider>
-      <div className="h-[100dvh] w-full overflow-hidden bg-cream">
-        <HeartCursor />
-        <div className="page-shell h-full">
-          {stage !== 'loading' && <MusicToggle />}
-          <ProgressIndicator
-            chapter={chapter}
-            visible={stage === 'story' && page <= TOTAL_CHAPTERS}
-          />
+    <div className="h-[100dvh] w-full overflow-hidden bg-cream">
+      <HeartCursor />
+      <div className="page-shell h-full">
+        {stage !== 'loading' && <MusicToggle />}
+        <ProgressIndicator
+          chapter={chapter}
+          visible={stage === 'story' && page <= TOTAL_CHAPTERS}
+        />
 
-          <div className="relative h-full w-full">
-            {stage === 'loading' && <LoadingScreen onComplete={finishLoading} />}
+        <div className="relative h-full w-full">
+          {stage === 'loading' && <LoadingScreen onComplete={finishLoading} />}
 
-            {stage === 'story' && (
-              <PageTransition pageKey={page} direction={direction}>
-                {page === 1 && <Page1SecretEntry onNext={next} />}
-                {page === 2 && <Page2Warning onNext={next} />}
-                {page === 3 && <Page3BirthdayReveal onNext={next} />}
-                {page === 4 && <Page4Confession onNext={next} />}
-                {page === 5 && <Page5LoveStats onNext={next} />}
-                {page === 6 && <Page6ThingsILove onNext={next} />}
-                {page === 7 && <Page7LoveStory onNext={next} />}
-                {page === 8 && <Page8BirthdayLetter onNext={next} />}
-                {page === 9 && <Page9Quiz onNext={next} />}
-                {page === 10 && <PageHeartPuzzle onNext={next} />}
-                {page === 11 && <Page10BirthdayWish onNext={next} />}
-                {page === 12 && (
-                  <Page11FinalQuestion
-                    onYes={() => {
-                      setDirection(1)
-                      setPage(13)
-                    }}
-                  />
-                )}
-                {page === 13 && (
-                  <Page12YesMoment
-                    onNext={() => {
-                      setDirection(1)
-                      setStage('final')
-                    }}
-                  />
-                )}
-              </PageTransition>
-            )}
+          {stage === 'story' && (
+            <PageTransition pageKey={page} direction={direction}>
+              {page === 1 && <Page1SecretEntry onNext={next} />}
+              {page === 2 && <Page2Warning onNext={next} />}
+              {page === 3 && <Page3BirthdayReveal onNext={next} />}
+              {page === 4 && <Page4Confession onNext={next} />}
+              {page === 5 && <Page5LoveStats onNext={next} />}
+              {page === 6 && <Page6ThingsILove onNext={next} />}
+              {page === 7 && <Page7LoveStory onNext={next} />}
+              {page === 8 && <Page8BirthdayLetter onNext={next} />}
+              {page === 9 && <Page9Quiz onNext={next} />}
+              {page === 10 && <PageHeartPuzzle onNext={next} />}
+              {page === 11 && <PageRatePratik onNext={next} />}
+              {page === 12 && <PageRateRadhika onNext={next} />}
+              {page === 13 && <PageRatingResults onNext={next} />}
+              {page === 14 && <Page10BirthdayWish onNext={next} />}
+              {page === 15 && (
+                <Page11FinalQuestion
+                  onYes={() => {
+                    setDirection(1)
+                    setPage(16)
+                  }}
+                />
+              )}
+              {page === 16 && (
+                <Page12YesMoment
+                  onNext={() => {
+                    setDirection(1)
+                    setStage('final')
+                  }}
+                />
+              )}
+            </PageTransition>
+          )}
 
-            {stage === 'final' && (
-              <PageTransition pageKey="final" direction={1}>
-                <FinalScreen onReplay={replay} />
-              </PageTransition>
-            )}
-          </div>
+          {stage === 'final' && (
+            <PageTransition pageKey="final" direction={1}>
+              <FinalScreen onReplay={replay} />
+            </PageTransition>
+          )}
         </div>
-        <span className="sr-only">A birthday surprise for {GIRL_NAME}</span>
       </div>
+      <span className="sr-only">A birthday surprise for {GIRL_NAME}</span>
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <MusicProvider>
+      <RatingsProvider>
+        <StoryApp />
+      </RatingsProvider>
     </MusicProvider>
   )
 }

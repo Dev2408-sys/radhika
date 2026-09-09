@@ -2,8 +2,8 @@ import { SoftButton } from '../components/SoftButton'
 import { PageLayout } from '../components/PageLayout'
 import { FadeIn, GlassCard } from '../components/ui'
 import { SoftImage } from '../components/SoftImage'
+import { BOY_NAME, GIRL_NAME } from '../config'
 import { HeartFullIcon } from '../components/icons'
-import { BOY_NAME, GIRL_NAME, IMAGES } from '../config'
 
 type Props = { onNext: () => void }
 
@@ -26,12 +26,18 @@ export function Page7LoveStory({ onNext }: Props) {
           </h1>
         </FadeIn>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-2">
           <SoftImage
-            src={IMAGES.couple}
-            alt="Soft romantic moment"
-            className="h-32 w-44"
+            src="/photos/radhika/radhika-5.png"
+            alt="Radhika"
+            className="h-28 w-24"
             delay={0.1}
+          />
+          <SoftImage
+            src="/photos/pratik/pratik-3.jpg"
+            alt="Pratik"
+            className="h-28 w-24"
+            delay={0.18}
           />
         </div>
 

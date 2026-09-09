@@ -105,6 +105,9 @@ export function Page12YesMoment({ onNext }: Props) {
             <p className="font-serif text-[1.2rem] leading-snug text-burgundy">
               You&apos;re loved more than you know. ❤️
             </p>
+            <p className="font-serif text-lg text-rose">
+              Happy Birthday, {GIRL_NAME}. 🎂
+            </p>
             <p className="font-script text-xl text-burgundy/80">
               With love,
               <br />

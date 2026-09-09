@@ -3,7 +3,7 @@ import { PageLayout } from '../components/PageLayout'
 import { FadeIn } from '../components/ui'
 import { SoftImage } from '../components/SoftImage'
 import { HeartFullIcon } from '../components/icons'
-import { BOY_NAME, GIRL_NAME, IMAGES } from '../config'
+import { BOY_NAME, GIRL_NAME } from '../config'
 
 type Props = { onNext: () => void }
 
@@ -26,9 +26,9 @@ export function Page3BirthdayReveal({ onNext }: Props) {
 
         <div className="relative mx-auto">
           <SoftImage
-            src={IMAGES.cake}
-            alt="Birthday celebration"
-            className="h-40 w-40"
+            src="/photos/radhika/radhika-3.png"
+            alt={`${GIRL_NAME} birthday girl`}
+            className="h-48 w-36"
             delay={0.2}
           />
           <div className="absolute -right-2 -top-2">
