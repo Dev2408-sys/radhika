@@ -2,7 +2,8 @@ import { SoftButton } from '../components/SoftButton'
 import { PageLayout } from '../components/PageLayout'
 import { FadeIn, GlassCard } from '../components/ui'
 import { SoftImage } from '../components/SoftImage'
-import { BOY_NAME, GIRL_NAME } from '../config'
+import { HeartFullIcon } from '../components/icons'
+import { BOY_NAME, GIRL_NAME, IMAGES } from '../config'
 
 type Props = { onNext: () => void }
 
@@ -25,12 +26,14 @@ export function Page7LoveStory({ onNext }: Props) {
           </h1>
         </FadeIn>
 
-        <SoftImage
-          src="/images/demo-ardhang.png"
-          alt="Two hearts becoming one"
-          className="mx-auto h-28 w-28"
-          delay={0.1}
-        />
+        <div className="flex justify-center">
+          <SoftImage
+            src={IMAGES.couple}
+            alt="Soft romantic moment"
+            className="h-32 w-44"
+            delay={0.1}
+          />
+        </div>
 
         <div className="relative pl-2">
           <div className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-pink-soft via-rose/40 to-pink-soft" />
@@ -50,6 +53,9 @@ export function Page7LoveStory({ onNext }: Props) {
         </div>
 
         <GlassCard delay={0.8} className="text-center !py-4">
+          <div className="mb-2 flex justify-center">
+            <HeartFullIcon size={40} />
+          </div>
           <p className="text-sm leading-relaxed text-burgundy/85">
             And somewhere along the way,
             <br />

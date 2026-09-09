@@ -4,7 +4,8 @@ import { FadeIn, GlassCard } from '../components/ui'
 import { Confetti } from '../components/Confetti'
 import { FloatingHearts } from '../components/FloatingHearts'
 import { SoftImage } from '../components/SoftImage'
-import { BOY_NAME, GIRL_NAME } from '../config'
+import { HeartFullIcon, RingIcon } from '../components/icons'
+import { BOY_NAME, GIRL_NAME, IMAGES } from '../config'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
@@ -17,9 +18,9 @@ export function Page12YesMoment({ onNext }: Props) {
   useEffect(() => {
     const timers = [
       window.setTimeout(() => setConfetti(false), 4200),
-      window.setTimeout(() => setPhase(1), 900),
-      window.setTimeout(() => setPhase(2), 2200),
-      window.setTimeout(() => setPhase(3), 3600),
+      window.setTimeout(() => setPhase(1), 800),
+      window.setTimeout(() => setPhase(2), 2000),
+      window.setTimeout(() => setPhase(3), 3400),
     ]
     return () => timers.forEach(clearTimeout)
   }, [])
@@ -33,16 +34,21 @@ export function Page12YesMoment({ onNext }: Props) {
           <p className="font-serif text-4xl text-rose">YAYYYYY ❤️🥹</p>
         </FadeIn>
 
-        <FadeIn delay={0.2}>
+        <FadeIn delay={0.15}>
           <p className="font-serif text-2xl text-burgundy tracking-wide">I KNEW IT.</p>
+          <p className="mt-1 text-sm text-burgundy/60">
+            (Also I knew you&apos;d chase that NO button. 😂)
+          </p>
         </FadeIn>
 
-        <SoftImage
-          src="/images/demo-ardhang.png"
-          alt="Two halves becoming whole"
-          className="mx-auto h-36 w-36"
-          delay={0.35}
-        />
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.3, type: 'spring' }}
+          className="flex justify-center"
+        >
+          <HeartFullIcon size={96} />
+        </motion.div>
 
         {phase >= 1 && (
           <motion.div
@@ -56,7 +62,7 @@ export function Page12YesMoment({ onNext }: Props) {
               <br />
               One half is {BOY_NAME}.
               <br />
-              Together — complete.
+              Together — one full heart. Complete.
             </p>
           </motion.div>
         )}
@@ -64,6 +70,9 @@ export function Page12YesMoment({ onNext }: Props) {
         {phase >= 2 && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
             <GlassCard className="!py-4 text-left space-y-2">
+              <div className="flex justify-center pb-1">
+                <RingIcon size={40} />
+              </div>
               <p className="text-sm leading-relaxed text-burgundy/85">
                 Today you are my girlfriend.
                 <br />
@@ -76,7 +85,7 @@ export function Page12YesMoment({ onNext }: Props) {
               </p>
               <p className="text-sm leading-relaxed text-rose italic">
                 In every soft season and every hard one —
-                I promise to stay.
+                I promise to stay. (And keep making you laugh.)
               </p>
             </GlassCard>
           </motion.div>
@@ -88,6 +97,11 @@ export function Page12YesMoment({ onNext }: Props) {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-3 pt-1"
           >
+            <SoftImage
+              src={IMAGES.flowers}
+              alt="Soft flowers"
+              className="mx-auto h-20 w-32"
+            />
             <p className="font-serif text-[1.2rem] leading-snug text-burgundy">
               You&apos;re loved more than you know. ❤️
             </p>

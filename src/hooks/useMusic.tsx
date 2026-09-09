@@ -21,26 +21,43 @@ const MusicContext = createContext<MusicContextValue | null>(null)
 export function MusicProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isAvailable, setIsAvailable] = useState(false)
+  const [isAvailable, setIsAvailable] = useState(true)
 
   useEffect(() => {
     const audio = new Audio(MUSIC_SRC)
     audio.loop = true
-    audio.volume = 0.35
-    audio.preload = 'none'
+    audio.volume = 0.4
+    audio.preload = 'auto'
     audioRef.current = audio
+
+    // Backup loop: if native loop fails on some browsers, restart from start
+    const onEnded = () => {
+      audio.currentTime = 0
+      void audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false))
+    }
+
+    const onPlay = () => setIsPlaying(true)
+    const onPause = () => setIsPlaying(false)
+
+    audio.addEventListener('ended', onEnded)
+    audio.addEventListener('play', onPlay)
+    audio.addEventListener('pause', onPause)
 
     const check = async () => {
       try {
         const res = await fetch(MUSIC_SRC, { method: 'HEAD' })
         setIsAvailable(res.ok)
       } catch {
-        setIsAvailable(false)
+        // Still allow play attempt — file may exist even if HEAD fails
+        setIsAvailable(true)
       }
     }
     void check()
 
     return () => {
+      audio.removeEventListener('ended', onEnded)
+      audio.removeEventListener('play', onPlay)
+      audio.removeEventListener('pause', onPause)
       audio.pause()
       audioRef.current = null
     }
@@ -50,17 +67,18 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current
     if (!audio) return
 
-    if (isPlaying) {
+    if (!audio.paused) {
       audio.pause()
-      setIsPlaying(false)
       return
     }
 
+    // Always ensure loop is on when starting
+    audio.loop = true
     void audio
       .play()
       .then(() => setIsPlaying(true))
       .catch(() => setIsPlaying(false))
-  }, [isPlaying])
+  }, [])
 
   const value = useMemo(
     () => ({ isPlaying, isAvailable, toggle }),

@@ -2,7 +2,8 @@ import { SoftButton } from '../components/SoftButton'
 import { PageLayout } from '../components/PageLayout'
 import { FadeIn } from '../components/ui'
 import { SoftImage } from '../components/SoftImage'
-import { BOY_NAME, GIRL_NAME } from '../config'
+import { HeartFullIcon } from '../components/icons'
+import { BOY_NAME, GIRL_NAME, IMAGES } from '../config'
 
 type Props = { onNext: () => void }
 
@@ -23,12 +24,17 @@ export function Page3BirthdayReveal({ onNext }: Props) {
           </p>
         </FadeIn>
 
-        <SoftImage
-          src="/images/demo-flowers.png"
-          alt="Soft roses for Radhika"
-          className="mx-auto h-40 w-40"
-          delay={0.2}
-        />
+        <div className="relative mx-auto">
+          <SoftImage
+            src={IMAGES.cake}
+            alt="Birthday celebration"
+            className="h-40 w-40"
+            delay={0.2}
+          />
+          <div className="absolute -right-2 -top-2">
+            <HeartFullIcon size={36} />
+          </div>
+        </div>
 
         <FadeIn delay={0.32}>
           <p className="text-center text-[0.95rem] leading-relaxed text-burgundy/85">

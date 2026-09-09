@@ -14,11 +14,12 @@ import { Page6ThingsILove } from './pages/Page6ThingsILove'
 import { Page7LoveStory } from './pages/Page7LoveStory'
 import { Page8BirthdayLetter } from './pages/Page8BirthdayLetter'
 import { Page9Quiz } from './pages/Page9Quiz'
+import { PageHeartPuzzle } from './pages/PageHeartPuzzle'
 import { Page10BirthdayWish } from './pages/Page10BirthdayWish'
 import { Page11FinalQuestion } from './pages/Page11FinalQuestion'
 import { Page12YesMoment } from './pages/Page12YesMoment'
 import { FinalScreen } from './pages/FinalScreen'
-import { GIRL_NAME } from './config'
+import { GIRL_NAME, TOTAL_CHAPTERS } from './config'
 
 type Stage = 'loading' | 'story' | 'final'
 
@@ -50,12 +51,13 @@ export default function App() {
         <HeartCursor />
         <div className="page-shell h-full">
           {stage !== 'loading' && <MusicToggle />}
-          <ProgressIndicator chapter={chapter} visible={stage === 'story' && page <= 12} />
+          <ProgressIndicator
+            chapter={chapter}
+            visible={stage === 'story' && page <= TOTAL_CHAPTERS}
+          />
 
           <div className="relative h-full w-full">
-            {stage === 'loading' && (
-              <LoadingScreen onComplete={finishLoading} />
-            )}
+            {stage === 'loading' && <LoadingScreen onComplete={finishLoading} />}
 
             {stage === 'story' && (
               <PageTransition pageKey={page} direction={direction}>
@@ -68,16 +70,17 @@ export default function App() {
                 {page === 7 && <Page7LoveStory onNext={next} />}
                 {page === 8 && <Page8BirthdayLetter onNext={next} />}
                 {page === 9 && <Page9Quiz onNext={next} />}
-                {page === 10 && <Page10BirthdayWish onNext={next} />}
-                {page === 11 && (
+                {page === 10 && <PageHeartPuzzle onNext={next} />}
+                {page === 11 && <Page10BirthdayWish onNext={next} />}
+                {page === 12 && (
                   <Page11FinalQuestion
                     onYes={() => {
                       setDirection(1)
-                      setPage(12)
+                      setPage(13)
                     }}
                   />
                 )}
-                {page === 12 && (
+                {page === 13 && (
                   <Page12YesMoment
                     onNext={() => {
                       setDirection(1)

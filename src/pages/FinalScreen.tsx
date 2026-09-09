@@ -4,7 +4,8 @@ import { FadeIn, GlassCard } from '../components/ui'
 import { FloatingHearts } from '../components/FloatingHearts'
 import { SoftImage } from '../components/SoftImage'
 import { Confetti } from '../components/Confetti'
-import { BOY_NAME, GIRL_NAME } from '../config'
+import { HeartFullIcon, RingIcon } from '../components/icons'
+import { BOY_NAME, GIRL_NAME, IMAGES } from '../config'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
@@ -27,12 +28,17 @@ export function FinalScreen({ onReplay }: Props) {
           <p className="font-script text-3xl text-rose">Our Forever Promise</p>
         </FadeIn>
 
-        <SoftImage
-          src="/images/demo-rings.png"
-          alt="Wedding rings"
-          className="h-40 w-40"
-          delay={0.15}
-        />
+        <div className="relative">
+          <SoftImage
+            src={IMAGES.rings}
+            alt="Wedding rings"
+            className="h-36 w-36"
+            delay={0.15}
+          />
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
+            <RingIcon size={36} />
+          </div>
+        </div>
 
         <FadeIn delay={0.25}>
           <p className="font-serif text-[1.55rem] leading-snug text-burgundy">
@@ -41,6 +47,9 @@ export function FinalScreen({ onReplay }: Props) {
         </FadeIn>
 
         <GlassCard delay={0.35} className="!py-5 space-y-3">
+          <div className="flex justify-center">
+            <HeartFullIcon size={48} />
+          </div>
           <p className="font-serif text-lg text-burgundy leading-snug">
             {GIRL_NAME} + {BOY_NAME}
           </p>
@@ -63,6 +72,8 @@ export function FinalScreen({ onReplay }: Props) {
             through easy days and heavy ones —
             <br />
             we stay. We choose. We complete each other.
+            <br />
+            <span className="not-italic text-rose">(And we keep teasing each other. 😂)</span>
           </motion.p>
         </GlassCard>
 
@@ -70,7 +81,9 @@ export function FinalScreen({ onReplay }: Props) {
           <p className="text-sm leading-relaxed text-burgundy/65">
             Made with way too much love,
             <br />
-            a little bit of madness,
+            a runaway NO button,
+            <br />
+            one heart puzzle,
             <br />
             and a promise meant to last. 😂❤️
           </p>

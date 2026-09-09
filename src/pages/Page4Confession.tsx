@@ -14,17 +14,17 @@ const facts = [
   {
     n: '02',
     title: 'He checks his phone hoping it\'s you.',
-    sub: 'And then pretends he wasn\'t waiting.',
+    sub: 'And then pretends he was busy being "cool".',
   },
   {
     n: '03',
     title: 'He may act normal...',
-    sub: 'But one message from you and his entire mood changes.',
+    sub: 'But one message from you and his entire mood does a backflip.',
   },
   {
     n: '04',
     title: 'He already calls you his better half.',
-    sub: 'Not casually. Not jokingly. Softly, and for life. ❤️',
+    sub: 'Not casually. Softly. And for life. ❤️',
   },
 ]
 

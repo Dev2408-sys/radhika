@@ -1,9 +1,6 @@
-# Birthday Surprise Music
+# Birthday tune
 
-Drop a soft romantic instrumental file here as:
+Current file: `happy-birthday.mp3`
 
-`vibe.mp3`
-
-Then the "Play our vibe" button will play it (only after the user taps — never autoplay).
-
-Recommended: quiet piano / soft acoustic, loop-friendly, ~2–4 minutes.
+- Plays only after the user taps **Play birthday tune** (no autoplay)
+- When the song ends, it automatically restarts from the beginning (`loop`)
